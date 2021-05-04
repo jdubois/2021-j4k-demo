@@ -60,7 +60,7 @@ jobs:
           container-registry-url: acr${{ env.CONTAINER_REGISTRY }}${{ env.ENVIRONMENT }}001.azurecr.io
           container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
           container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-          secret-name: ${{ env.CONTAINER_REGISTRY }}${{ env.ENVIRONMENT }}imagePullSecret
+          secret-name: ${{ env.CONTAINER_REGISTRY }}${{ env.ENVIRONMENT }}-image-pull-secret
           namespace: ${{ env.NAMESPACE }}
           force: true
 
@@ -73,5 +73,5 @@ jobs:
           images: |
             acr${{ env.CONTAINER_REGISTRY }}${{ env.ENVIRONMENT }}001.azurecr.io/${{ env.APPLICATION_NAME }}/${{ env.APPLICATION_NAME }}:${{ github.sha }}
           imagepullsecrets: |
-            ${{ env.CONTAINER_REGISTRY }}${{ env.ENVIRONMENT }}imagePullSecret
+            ${{ env.CONTAINER_REGISTRY }}${{ env.ENVIRONMENT }}-image-pull-secret
           namespace: ${{ env.NAMESPACE }}

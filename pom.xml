@@ -6,10 +6,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.microsoft.devrel.j4kdemo</groupId>
-    <artifactId>j-4-kdemo</artifactId>
+    <artifactId>j4kdemo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>J 4 Kdemo</name>
+    <name>J4Kdemo</name>
 
     <repositories>
         <!-- jhipster-needle-maven-repository -->
@@ -552,9 +552,6 @@
                         <from>
                             <image>adoptopenjdk:11-jre-hotspot</image>
                         </from>
-                        <to>
-                            <image>${env.imageName}</image>
-                        </to>
                         <container>
                             <entrypoint>
                                 <shell>bash</shell>

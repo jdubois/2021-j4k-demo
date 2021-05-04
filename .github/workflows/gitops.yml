@@ -30,7 +30,7 @@ jobs:
           echo "ENVIRONMENT=${TAG_NAME:4}" >> $GITHUB_ENV
       - name: Build with Docker
         run: |
-          mvn package -Pprod -DskipTests jib:dockerBuild -DimageName=acr${{ env.CONTAINER_REGISTRY }}${{ env.ENVIRONMENT }}001.azurecr.io/${{ env.APPLICATION_NAME }}/${{ env.APPLICATION_NAME }}:${{ github.sha }}
+          mvn package -Pprod -DskipTests jib:dockerBuild -Dimage=acr${{ env.CONTAINER_REGISTRY }}${{ env.ENVIRONMENT }}001.azurecr.io/${{ env.APPLICATION_NAME }}/${{ env.APPLICATION_NAME }}:${{ github.sha }}
       - name: Login to Azure
         uses: azure/login@v1
         with:

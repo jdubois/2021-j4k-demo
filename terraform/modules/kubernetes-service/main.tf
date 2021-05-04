@@ -28,12 +28,6 @@ resource "azurerm_kubernetes_cluster" "main" {
         vm_size    = "Standard_D2_v3"
     }
 
-    addon_profile {
-        kube_dashboard {
-            enabled = true
-        }
-    }
-
     role_based_access_control {
         enabled = true
         azure_active_directory {

@@ -10,7 +10,7 @@ name: GitOps
 on:
   push:
     branches:
-      - 'env-*'
+      - main
 
 env:
   APPLICATION_NAME: 'j4kdemo'

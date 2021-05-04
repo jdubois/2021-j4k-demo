@@ -1,0 +1,8 @@
+{
+  "generator-jhipster:7.0.1": {
+    "promptValues": {
+      "packageName": "com.microsoft.devrel.j4kdemo",
+      "nativeLanguage": "en"
+    }
+  }
+}

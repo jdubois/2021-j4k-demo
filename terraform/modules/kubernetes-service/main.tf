@@ -16,7 +16,7 @@ resource "azurerm_container_registry" "container-registry" {
   }
 }
 
-resource "azurerm_kubernetes_cluster" "example" {
+resource "azurerm_kubernetes_cluster" "main" {
     name                = "aks-${var.application_name}-001"
     resource_group_name = var.resource_group
     location            = var.location
@@ -51,11 +51,11 @@ resource "azurerm_kubernetes_cluster" "example" {
 }
 
 output "client_certificate" {
-    value = azurerm_kubernetes_cluster.example.kube_config.0.client_certificate
+    value = azurerm_kubernetes_cluster.main.kube_config.0.client_certificate
 }
 
 output "kube_config" {
-    value = azurerm_kubernetes_cluster.example.kube_config_raw
+    value = azurerm_kubernetes_cluster.main.kube_config_raw
 }
 
 #    "DATABASE_URL"      = var.database_url

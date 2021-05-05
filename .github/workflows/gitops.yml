@@ -67,9 +67,6 @@ jobs:
       # Deploy app to AKS
       - uses: azure/k8s-deploy@v1
         with:
-          manifests: |
-            manifests/deployment.yml
-            manifests/service.yml
           images: |
             acr${{ env.CONTAINER_REGISTRY }}${{ env.ENVIRONMENT }}001.azurecr.io/${{ env.APPLICATION_NAME }}/${{ env.APPLICATION_NAME }}:${{ github.sha }}
           imagepullsecrets: |

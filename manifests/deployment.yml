@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: j4kdemo
+  name: j4kdemo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: j4kdemo
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: j4kdemo
+    spec:
+      containers:
+        - image: acrj4kdemo001.azurecr.io/j4kdemo/j4kdemo:latest
+          name: j4kdemo
+          resources: {}

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-j4kdemo-svc
+  labels:
+    app: j4kdemo
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+  selector:
+    app: j4kdemo

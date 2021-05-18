@@ -28,13 +28,6 @@ resource "azurerm_kubernetes_cluster" "main" {
         vm_size    = "Standard_D2_v3"
     }
 
-    role_based_access_control {
-        enabled = true
-        azure_active_directory {
-            managed = true
-        }
-    }
-
     identity {
         type = "SystemAssigned"
     }

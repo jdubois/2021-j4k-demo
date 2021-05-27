@@ -51,7 +51,3 @@ output "client_certificate" {
 output "kube_config" {
     value = azurerm_kubernetes_cluster.main.kube_config_raw
 }
-
-#    "DATABASE_URL"      = var.database_url
-#    "DATABASE_USERNAME" = var.database_username
-#    "DATABASE_PASSWORD" = var.database_password

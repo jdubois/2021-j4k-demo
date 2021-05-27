@@ -22,4 +22,12 @@ spec:
           name: j4kdemo
           ports:
             - containerPort: 8080
+          env:
+            - name: SPRING_PROFILE
+              value: prod
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: datasource-credentials
+                  key: SPRING_DATASOURCE_PASSWORD
           resources: {}

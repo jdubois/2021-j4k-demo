@@ -550,7 +550,7 @@
                     <version>${jib-maven-plugin.version}</version>
                     <configuration>
                         <from>
-                            <image>adoptopenjdk:11-jre-hotspot</image>
+                            <image>mcr.microsoft.com/openjdk/jdk:11-ubuntu</image>
                         </from>
                         <container>
                             <entrypoint>

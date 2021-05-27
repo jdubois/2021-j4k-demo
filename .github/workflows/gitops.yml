@@ -44,7 +44,7 @@ jobs:
         with:
           creds: '${{ secrets.AZURE_CREDENTIALS }}'
           cluster-name: 'aks-${{ env.APPLICATION_NAME }}${{ env.ENVIRONMENT }}-001'
-          resource-group: 'rg-${{ env.APPLICATION_NAME }}${{ env.ENVIRONMENT }}-001'
+          resource-group: 'rg-judubois-j4kdemo${{ env.ENVIRONMENT }}-001'
 
       # Create namespace if doesn't exist
       - run: |

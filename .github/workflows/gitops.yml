@@ -14,7 +14,7 @@ on:
 
 env:
   APPLICATION_NAME: 'j4kdemo'
-  CONTAINER_REGISTRY: 'j4kdemo'
+  CONTAINER_REGISTRY: 'acrjuduboisj4kdemo001'
   NAMESPACE: 'default'
 
 jobs:

@@ -14,9 +14,9 @@ on:
 
 env:
   APPLICATION_NAME: 'j4kdemo'
-  CONTAINER_REGISTRY: 'acrjuduboisj4kdemo001'
-  NAMESPACE: 'dev'
-  ENVIRONMENT: 'dev'
+  CONTAINER_REGISTRY: 'juduboisj4kdemo'
+  NAMESPACE: 'judubois'
+  ENVIRONMENT: ''
 
 jobs:
   build-and-deploy:
@@ -61,13 +61,6 @@ jobs:
           secret-name: ${{ env.CONTAINER_REGISTRY }}${{ env.ENVIRONMENT }}-image-pull-secret
           namespace: ${{ env.NAMESPACE }}
           force: true
-
-      - uses: azure/k8s-create-secret@v1
-          with:
-            namespace: ${{ env.NAMESPACE }}
-            secret-type: 'generic'
-            arguments: --from-literal=account-name=${{ secrets.AZURE_STORAGE_ACCOUNT }} --from-literal=access-key=${{ secrets.AZURE_STORAGE_ACCESS_KEY }}
-            secret-name: azure-storage
 
       # Deploy app to AKS
       - uses: azure/k8s-deploy@v1

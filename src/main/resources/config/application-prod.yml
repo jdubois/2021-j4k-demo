@@ -33,7 +33,7 @@ spring:
       enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://psql-judubois-j4kdemo-001.postgres.database.azure.com:5432/j4kdemo
+    url: jdbc:postgresql://psql-judubois-j4kdemo-001.postgres.database.azure.com:5432/judubois-j4kdemo
     username: postgresqladmin@psql-judubois-j4kdemo-001
     password:
     hikari:

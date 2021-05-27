@@ -13,6 +13,7 @@ on:
       - main
 
 env:
+  AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
   APPLICATION_NAME: 'j4kdemo'
   CONTAINER_REGISTRY: 'juduboisj4kdemo'
   NAMESPACE: 'judubois'
@@ -24,9 +25,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Set environment variables
-        env:
-          AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Build with Docker
         run: |
           mvn package -Pprod -DskipTests jib:dockerBuild -Dimage=acr${{ env.CONTAINER_REGISTRY }}${{ env.ENVIRONMENT }}001.azurecr.io/${{ env.APPLICATION_NAME }}/${{ env.APPLICATION_NAME }}:${{ github.sha }}

@@ -15,7 +15,8 @@ on:
 env:
   APPLICATION_NAME: 'j4kdemo'
   CONTAINER_REGISTRY: 'acrjuduboisj4kdemo001'
-  NAMESPACE: 'default'
+  NAMESPACE: 'dev'
+  ENVIRONMENT: 'dev'
 
 jobs:
   build-and-deploy:
@@ -26,9 +27,6 @@ jobs:
       - name: Set environment variables
         env:
           AZURE_CREDENTIALS: ${{ secrets.AZURE_CREDENTIALS }}
-        run: |
-          TAG_NAME=${GITHUB_REF#refs/*/}
-          echo "ENVIRONMENT=${TAG_NAME:4}" >> $GITHUB_ENV
       - name: Build with Docker
         run: |
           mvn package -Pprod -DskipTests jib:dockerBuild -Dimage=acr${{ env.CONTAINER_REGISTRY }}${{ env.ENVIRONMENT }}001.azurecr.io/${{ env.APPLICATION_NAME }}/${{ env.APPLICATION_NAME }}:${{ github.sha }}
@@ -63,6 +61,13 @@ jobs:
           secret-name: ${{ env.CONTAINER_REGISTRY }}${{ env.ENVIRONMENT }}-image-pull-secret
           namespace: ${{ env.NAMESPACE }}
           force: true
+
+      - uses: azure/k8s-create-secret@v1
+          with:
+            namespace: ${{ env.NAMESPACE }}
+            secret-type: 'generic'
+            arguments: --from-literal=account-name=${{ secrets.AZURE_STORAGE_ACCOUNT }} --from-literal=access-key=${{ secrets.AZURE_STORAGE_ACCESS_KEY }}
+            secret-name: azure-storage
 
       # Deploy app to AKS
       - uses: azure/k8s-deploy@v1

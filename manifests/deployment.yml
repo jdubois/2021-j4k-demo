@@ -18,7 +18,7 @@ spec:
         app: j4kdemo
     spec:
       containers:
-        - image: acrjuduboisj4kdemo001.azurecr.io/j4kdemo/j4kdemo:latest
+        - image: acrjuduboisj4kdemo001.azurecr.io/judubois-j4kdemo/judubois-j4kdemo:latest
           name: j4kdemo
           ports:
             - containerPort: 8080
